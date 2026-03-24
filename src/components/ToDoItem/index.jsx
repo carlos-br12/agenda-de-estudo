@@ -3,6 +3,7 @@ import { IconPencil, IconTrash } from "../icons";
 import { use } from 'react';
 import { TodoContext } from '../TodoProvider/TodoContext';
 
+// o item da função ToDoItem é um componente que representa um item individual da lista de tarefas. Ele recebe um objeto item como prop, que contém as informações do todo, como descrição, data de criação e status de conclusão. O componente utiliza o contexto TodoContext para acessar as funções toggleItemCompleted, removeTodo e selectTodoForEdit, que permitem marcar o item como concluído, remover o item ou selecionar o item para edição, respectivamente. O estilo do item é condicionado ao seu status de conclusão, aplicando a classe 'completed' quando o item estiver marcado como concluído.
 export function ToDoItem ({ item }) {
     
     const { toggleItemCompleted, removeTodo, selectTodoForEdit } = use(TodoContext)

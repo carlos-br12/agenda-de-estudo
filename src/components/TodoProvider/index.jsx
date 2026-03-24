@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { TodoContext } from "./TodoContext"
-
+// o Todoprovider é um componente que utiliza o contexto TodoContext para fornecer o estado e as funções relacionadas aos todos para os componentes filhos. Ele gerencia o estado dos todos, a visibilidade do modal de formulário, e as funções para adicionar, remover, editar e marcar os itens como concluídos. O estado dos todos é persistido no localStorage para manter os dados mesmo após recarregar a página.
 export const TodoProvider = ({ children }) => {
 
     const savedTodos = localStorage.getItem('todos')
@@ -40,8 +40,10 @@ export const TodoProvider = ({ children }) => {
     //a função removeTodo recebe um objeto todo e atualiza o estado todos, filtrando o array antigo para remover o item com o mesmo id do todo passado como argumento. O resultado é um novo array que não contém o item removido, e esse novo array é definido como o novo estado de todos usando setTodos.
     const removeTodo = (todo) => {
         setTodos(oldState => oldState.filter(t => t.id != todo.id))
+        // aqui o != é usado para comparar os ids, e não os objetos completos, garantindo que o item correto seja removido do estado.
     }
 
+    // aqui a função toggleItemCompleted recebe um objeto todo e atualiza o estado todos, mapeando o array antigo e invertendo o valor da propriedade completed do item que corresponde ao id do todo passado como argumento. O resultado é um novo array com o item atualizado, e esse novo array é definido como o novo estado de todos usando setTodos.
     const toggleItemCompleted = (todo) => {
         setTodos(oldState =>
             oldState.map(item =>

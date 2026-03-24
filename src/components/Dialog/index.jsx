@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import './dialog.style.css'
 import { IconClose } from '../icons';
 
+
 export const Dialog = ({ isOpen, onClose, children }) => {
     const refDialog = useRef()
 
